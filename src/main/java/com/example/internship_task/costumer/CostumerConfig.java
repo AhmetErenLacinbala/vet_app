@@ -15,7 +15,6 @@ public class CostumerConfig {
     CommandLineRunner commandLineRunner(CostumerRepository repository){
         return args -> {
             Costumer ali = new Costumer(
-                    1L,
                     "ali",
                     "bise@bise.com",
                     LocalDate.of(2000, JANUARY,5),
@@ -23,7 +22,6 @@ public class CostumerConfig {
 
             );
             Costumer ahmet = new Costumer(
-                    2L,
                     "ahmet",
                     "bise2@bise.com",
                     LocalDate.of(1999, JANUARY,15),

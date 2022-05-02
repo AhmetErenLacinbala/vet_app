@@ -28,4 +28,18 @@ public class CostumerController {
     public void registerNewCostumer(@RequestBody Costumer costumer){
         costumerService.addNewCostumer(costumer);
     }
+    @DeleteMapping(path = "{costumerId}")
+    public void deleteCostumer(@PathVariable("costumerId") Long costumerId){
+        costumerService.deleteCostumer(costumerId);
+    }
+    @PutMapping(path = "{costumerId}")
+    public void updateCostumer(
+            @PathVariable("costumerId") Long costumerId,
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) String email,
+            @RequestParam(required = false) Long tel_no){
+        costumerService.updateCostumer(costumerId, name, email, tel_no);
+    }
+
+
 }
