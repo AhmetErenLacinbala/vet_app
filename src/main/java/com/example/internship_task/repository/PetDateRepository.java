@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PetDateRepository extends JpaRepository<PetDate, Long> {
+public interface PetDateRepository extends JpaRepository<PetDate, String> {
 
 }

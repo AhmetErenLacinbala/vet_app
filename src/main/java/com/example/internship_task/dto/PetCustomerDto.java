@@ -1,45 +1,34 @@
-package com.example.internship_task.model;
+package com.example.internship_task.dto;
+import com.example.internship_task.model.Pet;
+import lombok.Data;
 
-import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
-@Entity
-public class Customer {
-    @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name="UUID", strategy = "org.hibernate.id.UUIDGenerator")
+@Data
+public class PetCustomerDto{
     private String id;
-//id, name, tel, email, reg_date
-
     private String name;
     private Integer tel;
     private String email;
     private LocalDate reg_date;
 
-    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY ) //BURASI EAGER OLABİLİR DİKKAT
     private Set<Pet> pets;
 
-    public Customer(String id,
-                    String name,
-                    Integer tel,
-                    String email,
-                    LocalDate reg_date,
-                    Set<Pet> pets) {
+
+
+    public PetCustomerDto(String id, String name, Integer tel, String email, LocalDate reg_date, Set<Pet> pets) {
         this.id = id;
         this.name = name;
         this.tel = tel;
         this.email = email;
         this.reg_date = reg_date;
-        this.pets = pets;
-    }
-    public Customer() {
+        this.pets =  pets;
     }
 
+    public PetCustomerDto() {
+    }
 
     public String getId() {
         return id;
@@ -57,7 +46,7 @@ public class Customer {
         this.name = name;
     }
 
-    public Integer getTel() {
+    public int getTel() {
         return tel;
     }
 
@@ -82,16 +71,10 @@ public class Customer {
     }
 
     public Set<Pet> getPets() {
-        return this.pets;
+        return pets;
     }
 
-
-
-
-
-
-
-
-
-
+    public void setPets(Set<Pet> pets) {
+        this.pets = pets;
+    }
 }
